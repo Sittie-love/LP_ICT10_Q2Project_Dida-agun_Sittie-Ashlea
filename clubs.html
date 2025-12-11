@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+        <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+        body{
+            background-color: #acc8d7;
+            font-family: 'Gill Sans', 'Gill Sans MT';
+        }
+        .container{
+            width: 800px;
+        }
+        .popupContainer{
+            padding: 20px;
+            border: 4px solid black;
+        }
+        .heading1{
+            padding: 70px;
+            background-color: #000435;
+            width: 100%;
+            color: white; 
+        }
+        .nav{
+            background-color: #36454F;
+            width: 1550px;
+            padding: 10px;
+            color: white;
+        }
+        button{
+            width: 800px;
+            padding: 10px;
+            background-color: #000435;
+            color: white;
+            border-radius: 10px;
+        }
+        p{
+            font-size: 17px;
+            text-align: left;
+        }
+        select{
+            width: 800px;
+            height: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="nav">
+            <a class="navbar-brand" href="index.html"> O.B. Montessori Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="grade calculator.html">Grade Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clubs.html">Clubs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<center>
+<div class="container">
+<h1>School Club Information</h1>
+
+<p>Select a club:</p>
+<select id="myDropdown">
+  <option value="">Select an option</option>
+  <option value="science">Science club</option>
+  <option value="math">Math guild</option>
+  <option value="ss">SS club</option>
+  <option value="sports">Sports club</option>
+  <option value="robotics">Robotics club</option>
+</select>
+
+<br><br>
+
+<button onclick="showParagraphs()">Show club information</button>
+
+<div id="popupContainer" 
+     style="
+       display: none;
+       margin-top: 20px;
+       padding: 15px;
+       border: 1px solid #2c1408;
+       border-radius: 5px;
+       background-color: #CCCCCC;
+       width: 800px;
+     ">
+  <div id="output"></div>
+  </div>
+
+</div>
+</center>
+
+
+
+
+<script>
+function showParagraphs() {
+  const value = document.getElementById("myDropdown").value;
+  const container = document.getElementById("popupContainer");
+  const out = document.getElementById("output");
+
+  container.style.display = "block";
+
+  if (value === "") {
+    out.innerHTML = "<p>Please select an option first.</p>";
+  }
+  else if (value === "science") {
+    out.innerHTML = `
+      <p><strong>Science club:</strong></p>
+      <p>Description: Physics, chemistry, earth and space, you name it! Discussion accompanied by fun experiments!</p>
+      <p>Meeting Time: 3:00-5:00 pm Tuesday</p>
+      <p>Location: Chemistry/Physics lab</p>
+      <p>Adviser: Ms. Robel</p>
+      <p>Category: Academic</p>
+    `;
+  }
+  else if (value === "math") {
+    out.innerHTML = `
+      <p><strong>Math club:</strong></p>
+      <p>Description: Settling computations and geometry with its members!</p>
+      <p>Meeting Time: 3:00-5:00 pm Wednesday</p>
+      <p>Location: Math lab</p>
+      <p>Adviser: Ms. Booloan</p>
+      <p>Category: Academic</p>
+    `;
+  }
+  else if (value === "ss") {
+    out.innerHTML = `
+      <p><strong>SS club:</strong></p>
+      <p>Description: Delve into history, politics, and political science with SS club!</p>
+      <p>Meeting Time: 3:00-4:00 pm Tuesday</p>
+      <p>Location: SS club room</p>
+      <p>Adviser: Mr. Hablado</p>
+      <p>Category: Academic</p>
+    `;
+  }
+  else if (value === "sports") {
+    out.innerHTML = `
+      <p><strong>Sports club:</strong></p>
+      <p>Description: Play volleyball, basketball, badminton, with Sports club!</p>
+      <p>Meeting Time: 3:00-4:00 pm Friday</p>
+      <p>Location: Gym</p>
+      <p>Adviser: Mr. Tare</p>
+      <p>Category: Non-academic</p>
+    `;
+  }
+  else if (value === "robotics") {
+    out.innerHTML = `
+      <p><strong>Robotics club:</strong></p>
+      <p>Description: Designing, building, creating with Robotics club!</p>
+      <p>Meeting Time: 3:00-4:00 pm Monday</p>
+      <p>Location: Robotics lab</p>
+      <p>Adviser: Ms. Carabot</p>
+      <p>Category: Non-academic</p>
+    `;
+  }
+}
+</script>
+
+
+
+</body>
+</html>
